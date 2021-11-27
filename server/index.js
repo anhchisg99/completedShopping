@@ -11,15 +11,18 @@ const routeOrder = require('./routes/order.route')
 app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
- 
 
+
+const pass_mongodb = process.env.MONGODB_URL
 // parse application/json
 app.use(bodyParser.json())
-mongoose.connect('mongodb://localhost/vuejsshopping')
+
+mongoose.connect(pass_mongodb || 'mongodb://localhost/vuejsshopping')
+// mongoose.connect('mongodb://localhost/vuejsshopping')
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
 // })
-// Handle production
+
 if (process.env.NODE_ENV === 'production') {
     // Static folder
     app.use(express.static(__dirname + '/public/'));
