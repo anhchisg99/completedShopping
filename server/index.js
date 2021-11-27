@@ -13,11 +13,12 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-const pass_mongodb = process.env.MONGODB_URL
+// const pass_mongodb = process.env.MONGODB_URL
 // parse application/json
 app.use(bodyParser.json())
 
-mongoose.connect(pass_mongodb || 'mongodb://localhost/vuejsshopping')
+// mongoose.connect(pass_mongodb || 'mongodb://localhost/vuejsshopping')
+mongoose.connect(process.env.MONGODB_URL)
 // mongoose.connect('mongodb://localhost/vuejsshopping')
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
