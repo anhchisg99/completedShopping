@@ -23,7 +23,9 @@ mongoose.connect(process.env.MONGODB_URL)
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
 // })
-
+app.use('/api/item',routeItem)
+app.use('/api/user',routeUser)
+app.use('/api/order',routeOrder)
 if (process.env.NODE_ENV === 'production') {
     // Static folder
     app.use(express.static(__dirname + '/public/'));
@@ -32,9 +34,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
  }
 
-app.use('/api/item',routeItem)
-app.use('/api/user',routeUser)
-app.use('/api/order',routeOrder)
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
