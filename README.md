@@ -1,7 +1,7 @@
 ## CHI DUONG
 
 
-> Learn Vue.js through a sample Vue app which whos the current Bitcoin value in USD, GBP
+
 
 ## Using
 -   Client-side navigation
